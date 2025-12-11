@@ -1,0 +1,535 @@
+:root {
+    --color-primary-red: #d92437;
+    --color-text-dark: #333333;
+    --color-text-light: #ffffff;
+    --color-link: #d92437;
+    --color-footer-bg: #222222;
+    --color-footer-text: #aaaaaa;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    color: var(--color-text-dark);
+    line-height: 1.6;
+    background-color: #ffffff;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.2s;
+}
+
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #eeeeee;
+}
+
+
+.logo-img {
+    height: 90px;
+    width: auto;
+    display: block;
+}
+
+.header-title {
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    color: var(--color-text-dark);
+}
+
+.main-nav a {
+    font-size: 14px;
+    font-weight: 600;
+    margin-left: 25px;
+    color: var(--color-text-dark);
+    letter-spacing: 1px;
+}
+
+.main-nav a.active {
+    color: var(--color-primary-red);
+}
+
+.main-nav a:hover {
+    color: var(--color-primary-red);
+}
+
+.shop-header,
+.contact-header {
+    background-color: var(--color-primary-red);
+    color: var(--color-text-light);
+    border-bottom: none;
+}
+
+.shop-header .logo, .shop-header .header-title, .shop-header .main-nav a,
+.contact-header .logo, .contact-header .header-title, .contact-header .main-nav a {
+    color: var(--color-text-light);
+}
+
+.shop-header .main-nav a.active,
+.contact-header .main-nav a.active {
+    color: #000000; 
+}
+
+.shop-header .main-nav a:hover,
+.contact-header .main-nav a:hover {
+    color: #cccccc;
+}
+
+.album-container {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    position: relative;
+    z-index: 1;
+    margin-top: 50px;
+}
+
+.album-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.album-cover {
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.home-cover {
+    width: 250px;
+    height: 250px;
+    border: 1px solid var(--color-text-light);
+}
+
+.new-album-section {
+    background-color: var(--color-primary-red);
+    padding: 80px 40px 60px;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+
+.shop-now-btn {
+    display: block;
+    padding: 10px 40px;
+    background-color: #ffffff;
+    color: var(--color-primary-red);
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 2px;
+    border: 1px solid #ffffff;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.shop-now-btn:hover {
+    background-color: transparent;
+    color: #ffffff;
+}
+
+.about-section {
+    padding: 80px 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.section-heading {
+    font-size: 40px;
+    font-weight: 700;
+    color: var(--color-text-dark);
+    margin-bottom: 30px;
+    letter-spacing: 2px;
+}
+
+.about-content p {
+    margin-bottom: 20px;
+    font-size: 15px;
+    color: #555555;
+    text-align: justify;
+}
+
+/* SHOP PAGE SECTIONS */
+
+.section-divider {
+    border: none;
+    height: 1px;
+    background-color: #e0e0e0;
+    margin: 40px auto;
+    max-width: 1000px;
+}
+
+.album-details-section {
+    padding: 60px 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.album-layout-container {
+    display: flex;
+    justify-content: center;
+    gap: 80px;
+    margin-top: 40px;
+    text-align: left;
+}
+
+.album-art-info, .album-tracklist {
+    flex-basis: 50%;
+    max-width: 450px;
+}
+
+.detail-album-cover {
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    margin: 15px 0 20px 0;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.album-art-info h3 {
+    color: var(--color-primary-red);
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.release-info, .artist-note {
+    font-size: 14px;
+    color: #777777;
+    margin-bottom: 10px;
+}
+
+/* Tracklist Styling */
+.album-tracklist h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--color-text-dark);
+    margin-bottom: 15px;
+}
+
+.track-list {
+    list-style: none; 
+    padding: 0;
+    margin-bottom: 30px;
+    counter-reset: track-counter;
+}
+
+.track-list li {
+    font-size: 16px;
+    line-height: 2.5;
+    border-bottom: 1px dashed #e0e0e0;
+    padding-left: 30px;
+    position: relative;
+    font-weight: 600;
+}
+
+.track-list li:before {
+    counter-increment: track-counter;
+    content: counter(track-counter, decimal-leading-zero) ".";
+    position: absolute;
+    left: 0;
+    font-weight: 400;
+    color: var(--color-primary-red);
+}
+
+.track-list span {
+    float: right;
+    font-size: 14px;
+    font-weight: 400;
+    color: #777777;
+}
+
+.track-description {
+    font-size: 15px;
+    line-height: 1.7;
+    margin-bottom: 20px;
+    color: #555555;
+    text-align: justify;
+}
+
+.small-cover {
+    max-width: 250px;
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+/* Audio Player Styling */
+.music-player-container {
+    margin-top: 30px;
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    background-color: #f9f9f9;
+}
+
+.music-player-container h4 {
+    font-size: 16px;
+    color: var(--color-text-dark);
+    margin-bottom: 10px;
+}
+
+.player-note {
+    font-size: 12px;
+    color: #777777;
+    margin-top: 5px;
+}
+
+
+/* CONTACT PAGE SECTIONS */
+.contact-form-section {
+    padding: 80px 40px 60px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.contact-heading {
+    font-size: 50px;
+    font-weight: 300;
+    color: var(--color-text-dark);
+    margin-bottom: 50px;
+    letter-spacing: 2px;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.form-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    position: absolute;
+    top: -25px;
+    left: 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-text-dark);
+    letter-spacing: 1px;
+}
+
+.form-group input[type="email"],
+.form-group input[type="text"],
+.form-group textarea {
+    width: 100%;
+    border: none;
+    border-bottom: 5px solid var(--color-primary-red);
+    padding: 0;
+    height: 50px;
+    background-color: var(--color-primary-red);
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 50px;
+    text-indent: 10px;
+    transition: background-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    background-color: #a31a28;
+}
+
+.form-group textarea {
+    height: 150px;
+    line-height: 1.5;
+}
+
+.submit-btn {
+    align-self: flex-end;
+    padding: 10px 30px;
+    background-color: var(--color-primary-red);
+    color: #ffffff;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 2px;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.submit-btn:hover {
+    background-color: #a31a28;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.contact-info-section {
+    padding: 40px 40px 80px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.contact-info-text p {
+    margin-bottom: 15px;
+    font-size: 15px;
+    color: #555555;
+    line-height: 1.6;
+}
+
+.contact-info-text strong {
+    color: var(--color-primary-red);
+    font-size: 16px;
+    font-weight: 700;
+}
+
+/* FOOTER */
+.main-footer {
+    background-color: var(--color-footer-bg);
+    color: var(--color-footer-text);
+    padding: 30px 40px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 1.8;
+    border-top: 4px solid var(--color-primary-red);
+}
+
+.main-footer a {
+    color: var(--color-footer-text);
+    text-decoration: underline;
+}
+
+.main-footer a:hover {
+    color: var(--color-primary-red);
+}
+
+.main-footer strong {
+    font-weight: 700;
+}
+.shop-header .main-nav a.active,
+.contact-header .main-nav a.active {
+    color: #000000; 
+}
+
+
+.shop-products-section {
+    padding: 60px 40px;
+    text-align: center;
+}
+
+.shop-page-heading {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 50px;
+    color: var(--color-primary-red);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 280px); 
+    justify-content: center;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto 80px;
+    padding: 0 20px;
+}
+
+
+.merch-grid {
+    grid-template-columns: repeat(4, 1fr); 
+    padding: 0 40px; 
+    max-width: 1400px;
+}
+
+.product-card {
+    border: 1px solid #e0e0e0;
+    padding: 15px;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    transition: box-shadow 0.3s;
+}
+
+.product-card:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); 
+}
+
+.product-img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 1px solid #f0f0f0;
+}
+
+.product-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-text-dark);
+    margin-bottom: 5px;
+}
+
+.product-price {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--color-primary-red);
+    margin-bottom: 10px;
+}
+
+.product-description {
+    font-size: 13px;
+    color: #777777;
+    margin-bottom: 15px;
+    flex-grow: 1;
+}
+
+.add-to-cart-btn {
+    display: block;
+    padding: 10px;
+    background-color: var(--color-primary-red);
+    color: var(--color-text-light);
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 1px;
+    border: none;
+    transition: background-color 0.3s;
+}
+
+.add-to-cart-btn:hover {
+    background-color: #a31a28;
+}
+
+.shop-info-section {
+    padding: 60px 40px 80px;
+    background-color: #ffffff;
+}
+
+.shop-info-content {
+    max-width: 900px;
+    margin: 0 auto;
+    font-size: 15px;
+    line-height: 1.8;
+    color: #555555;
+    text-align: center; 
+}
+
+.shop-info-content p {
+    margin-bottom: 25px;
+    text-align: center; 
+}
+
